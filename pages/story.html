@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perjalanan 30 Hari Cinta Kita 💕</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===== RESET & BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Nunito", sans-serif;
+        background: linear-gradient(135deg, #fff5f9 0%, #fff0f5 100%);
+        color: #333;
+        line-height: 1.5;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* ===== NAVIGATION ===== */
+      .navbar {
+        background: white;
+        box-shadow: 0 2px 15px rgba(255, 154, 197, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        padding: 15px 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 28px;
+        color: #ff6b9d;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .logo span {
+        color: #d5aaff;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: #666;
+        font-weight: 600;
+        padding: 8px 16px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .nav-menu a:hover {
+        background: #fff0f5;
+        color: #ff6b9d;
+      }
+
+      .nav-menu a.active {
+        background: linear-gradient(45deg, #ff6b9d, #d5aaff);
+        color: white;
+        box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+      }
+
+      /* ===== HAMBURGER MENU ===== */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        gap: 5px;
+        z-index: 1001;
+        padding: 10px;
+      }
+
+      .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #ff6b9d;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+      }
+
+      /* Hamburger animation when active */
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+
+      /* ===== MOBILE NAV ===== */
+      @media (max-width: 768px) {
+        .hamburger {
+          display: flex;
+        }
+
+        .nav-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          background: white;
+          flex-direction: column;
+          width: 250px;
+          height: 100vh;
+          padding: 80px 20px 20px;
+          border-radius: 0;
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+          transition: right 0.3s ease;
+          z-index: 1000;
+          display: flex !important; /* Important to override inline styles */
+        }
+
+        .nav-menu.show {
+          right: 0;
+        }
+
+        .nav-menu li {
+          margin-bottom: 15px;
+        }
+
+        .nav-menu a {
+          padding: 12px 20px;
+          border-radius: 10px;
+          font-size: 16px;
+          justify-content: flex-start;
+        }
+      }
+
+      /* Overlay untuk background saat menu terbuka */
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none;
+      }
+
+      .menu-overlay.show {
+        display: block;
+      }
+
+      /* ===== HEADER ===== */
+      .page-header {
+        text-align: center;
+        padding: 60px 20px;
+        background: linear-gradient(135deg, #ff6b9d 0%, #d5aaff 100%);
+        color: white;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .page-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 48px;
+        margin-bottom: 15px;
+        color: white;
+      }
+
+      .page-subtitle {
+        font-size: 18px;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* ===== DAYS COUNTER ===== */
+      .days-counter {
+        text-align: center;
+        margin: 40px auto;
+        padding: 40px 30px;
+        background: linear-gradient(45deg, #ff6b9d, #d5aaff);
+        border-radius: 20px;
+        color: white;
+        max-width: 700px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .counter-number {
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1;
+        margin: 10px 0;
+        font-family: "Dancing Script", cursive;
+      }
+
+      .counter-label {
+        font-size: 20px;
+        opacity: 0.9;
+      }
+
+      .counter-description {
+        margin-top: 10px;
+        opacity: 0.9;
+        font-size: 16px;
+      }
+
+      /* ===== TIMELINE - VERTICAL SINGLE COLUMN ===== */
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px 0;
+      }
+
+      /* Timeline center line */
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 85%;
+        background: linear-gradient(
+          to bottom,
+          #ff6b9d,
+          #d5aaff,
+          #a5d8ff,
+          #c1ffd7
+        );
+        border-radius: 2px;
+      }
+
+      /* ===== TIMELINE ITEMS - COMPACT VERSION ===== */
+      .timeline-item {
+        display: flex;
+        margin: 30px 0;
+        position: relative;
+        min-height: 200px; /* COMPACT HEIGHT */
+      }
+
+      /* All items on left side */
+      .timeline-item:nth-child(odd),
+      .timeline-item:nth-child(even) {
+        flex-direction: row;
+      }
+
+      /* ===== TIMELINE CONTENT - FIXED SIZE ===== */
+      .timeline-content {
+        width: 45%;
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        position: relative;
+        border-left: 5px solid;
+        min-height: 180px; /* FIXED HEIGHT */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        flex-shrink: 0;
+      }
+
+      /* Week colors */
+      .timeline-item:nth-child(1) .timeline-content {
+        border-left-color: #ff6b9d;
+      }
+
+      .timeline-item:nth-child(2) .timeline-content {
+        border-left-color: #d5aaff;
+      }
+
+      .timeline-item:nth-child(3) .timeline-content {
+        border-left-color: #a5d8ff;
+      }
+
+      .timeline-item:nth-child(4) .timeline-content {
+        border-left-color: #c1ffd7;
+      }
+
+      /* Week badges */
+      .week-badge {
+        display: inline-block;
+        padding: 6px 15px;
+        border-radius: 20px;
+        font-weight: 700;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 10px;
+      }
+
+      .timeline-item:nth-child(1) .week-badge {
+        background: #ff6b9d;
+        color: white;
+      }
+
+      .timeline-item:nth-child(2) .week-badge {
+        background: #d5aaff;
+        color: white;
+      }
+
+      .timeline-item:nth-child(3) .week-badge {
+        background: #a5d8ff;
+        color: white;
+      }
+
+      .timeline-item:nth-child(4) .week-badge {
+        background: #c1ffd7;
+        color: #333;
+      }
+
+      /* Week titles */
+      .timeline-content h3 {
+        font-size: 20px;
+        margin-bottom: 8px;
+        color: #333;
+        font-family: "Dancing Script", cursive;
+        line-height: 1.2;
+      }
+
+      /* Week descriptions */
+      .timeline-content p {
+        color: #666;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        flex-grow: 1;
+        display: -webkit-box;
+        -webkit-line-clamp: 3; /* LIMIT 2 LINES */
+        line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      /* Feeling tags */
+      .feeling-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+        margin-top: auto;
+      }
+
+      .feeling-tag {
+        background: #fff0f5;
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* Timeline icons */
+      .timeline-icon {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        border: 3px solid;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        top: 50%;
+        margin-top: -25px;
+      }
+
+      /* Icon colors */
+      .timeline-item:nth-child(1) .timeline-icon {
+        color: #ff6b9d;
+        border-color: #ff6b9d;
+      }
+
+      .timeline-item:nth-child(2) .timeline-icon {
+        color: #d5aaff;
+        border-color: #d5aaff;
+      }
+
+      .timeline-item:nth-child(3) .timeline-icon {
+        color: #a5d8ff;
+        border-color: #a5d8ff;
+      }
+
+      .timeline-item:nth-child(4) .timeline-icon {
+        color: #c1ffd7;
+        border-color: #c1ffd7;
+      }
+
+      /* Position cards alternately */
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-right: auto;
+        margin-left: 0;
+      }
+
+      .timeline-item:nth-child(even) .timeline-content {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      /* ===== CELEBRATION SECTION ===== */
+      .celebration-section {
+        text-align: center;
+        margin: 50px auto;
+        padding: 40px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.1);
+        max-width: 700px;
+      }
+
+      .celebration-section h2 {
+        color: #333;
+        margin-bottom: 15px;
+        font-size: 32px;
+        font-family: "Dancing Script", cursive;
+      }
+
+      .celebration-section p {
+        color: #666;
+        max-width: 500px;
+        margin: 0 auto 25px;
+        line-height: 1.6;
+      }
+
+      /* Cute Button */
+      .cute-button {
+        background: linear-gradient(45deg, #ff6b9d, #d5aaff);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 5px 15px rgba(255, 107, 157, 0.2);
+      }
+
+      .cute-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(255, 107, 157, 0.3);
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        background: linear-gradient(135deg, #ff6b9d, #d5aaff);
+        color: white;
+        margin-top: 60px;
+        padding: 40px 20px;
+        text-align: center;
+      }
+
+      .footer-logo {
+        font-family: "Dancing Script", cursive;
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+
+      .footer-date {
+        margin-bottom: 20px;
+        opacity: 0.9;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      /* Toggle Buttons */
+      .music-toggle,
+      .theme-toggle {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: 2px solid white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .music-toggle:hover,
+      .theme-toggle:hover {
+        background: white;
+        color: #ff6b9d;
+        transform: translateY(-2px);
+      }
+
+      .pulse {
+        animation: heartbeat 1.5s infinite;
+        display: inline-block;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* ===== RESPONSIVE DESIGN ===== */
+      @media (max-width: 768px) {
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-item {
+          flex-direction: row !important;
+          margin: 25px 0;
+        }
+
+        .timeline-content {
+          width: calc(100% - 80px);
+          margin-left: 70px !important;
+          margin-right: 0 !important;
+          height: 160px;
+          padding: 20px;
+        }
+
+        .timeline-icon {
+          left: 30px;
+          transform: translateX(0);
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+          margin-top: -20px;
+        }
+
+        .page-title {
+          font-size: 36px;
+        }
+
+        .counter-number {
+          font-size: 56px;
+        }
+
+        .nav-menu {
+          gap: 15px;
+        }
+
+        .nav-menu a {
+          padding: 6px 12px;
+          font-size: 14px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .timeline-content {
+          height: 180px;
+          padding: 15px;
+        }
+
+        .timeline-content h3 {
+          font-size: 14px;
+        }
+
+        .timeline-content p {
+          font-size: 13px;
+          -webkit-line-clamp: 2;
+          line-clamp: 2;
+        }
+
+        .page-header {
+          padding: 40px 15px;
+        }
+
+        .page-title {
+          font-size: 32px;
+        }
+
+        .days-counter {
+          padding: 30px 20px;
+        }
+
+        .counter-number {
+          font-size: 48px;
+        }
+
+        .celebration-section {
+          padding: 30px 20px;
+        }
+
+        .celebration-section h2 {
+          font-size: 28px;
+        }
+
+        .footer {
+          padding: 30px 15px;
+        }
+      }
+
+      /* ===== SCROLLBAR ===== */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #fff0f5;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(#ff6b9d, #d5aaff);
+        border-radius: 4px;
+      }
+
+      /* ===== FLOATING HEARTS ===== */
+      .floating-heart {
+        position: fixed;
+        font-size: 20px;
+        animation: float 6s ease-in-out infinite;
+        opacity: 0.6;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* ===== DARK THEME ===== */
+      .dark-theme {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        color: #e0e0e0;
+      }
+
+      .dark-theme .timeline-content {
+        background: #2d3047;
+        color: #e0e0e0;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark-theme .timeline-content h3 {
+        color: white;
+      }
+
+      .dark-theme .timeline-content p {
+        color: #b0b0b0;
+      }
+
+      .dark-theme .feeling-tag {
+        background: #3a3d5a;
+      }
+
+      .dark-theme .navbar {
+        background: #1a1a2e;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark-theme .logo {
+        color: #ff6b9d;
+      }
+
+      .dark-theme .nav-menu a {
+        color: #b0b0b0;
+      }
+
+      .dark-theme .nav-menu a:hover {
+        background: #2d3047;
+        color: #ff6b9d;
+      }
+
+      .dark-theme .celebration-section {
+        background: #2d3047;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .dark-theme .menu-overlay {
+        background: rgba(0, 0, 0, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <div class="container nav-container">
+        <a href="../index.html" class="logo">30Hari<span>Kita</span></a>
+        <!-- Hamburger Button -->
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="../index.html"><i class="fas fa-home"></i> Beranda</a>
+          </li>
+          <li>
+            <a href="story.html" class="active"
+              ><i class="fas fa-heart"></i> 30 Hari</a
+            >
+          </li>
+          <li>
+            <a href="gallery.html"><i class="fas fa-images"></i> Galeri</a>
+          </li>
+          <li>
+            <a href="messages.html"><i class="fas fa-envelope"></i> Pesan</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Perjalanan 30 Hari Kita ✨</h1>
+        <p class="page-subtitle">
+          Setiap minggu adalah bab baru dalam cerita cinta kita yang manis
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Days Counter -->
+      <div class="days-counter">
+        <h2>🎉 Selamat 1 Bulan! 🎉</h2>
+        <div class="counter-number" id="daysCounter">30</div>
+        <div class="counter-label">Hari Indah Bersama 💕</div>
+        <p class="counter-description">
+          Dari hari pertama sampai sekarang, setiap momen adalah keajaiban
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="timeline">
+        <!-- Minggu 1 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="week-badge">Minggu 1 🎯</span>
+            <h3>Penyesuaian & Kebahagiaan Awal</h3>
+            <p>
+              Awal yang manis! Kita mulai saling mengenal, belajar tentang satu
+              sama lain...
+            </p>
+            <div class="feeling-tags">
+              <span class="feeling-tag"
+                ><i class="fas fa-heart"></i> Deg-degan</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-star"></i> Penasaran</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-smile"></i> Bahagia</span
+              >
+            </div>
+          </div>
+          <div class="timeline-icon">
+            <i class="fas fa-seedling"></i>
+          </div>
+        </div>
+
+        <!-- Minggu 2 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="week-badge">Minggu 2 🌱</span>
+            <h3>Semakin Mengenal & Memahami</h3>
+            <p>
+              Mulai terbuka lebih dalam, berbagi cerita masa lalu, impian masa
+              depan...
+            </p>
+            <div class="feeling-tags">
+              <span class="feeling-tag"
+                ><i class="fas fa-hand-holding-heart"></i> Pengertian</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-comments"></i> Komunikasi</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-hands"></i> Support</span
+              >
+            </div>
+          </div>
+          <div class="timeline-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+        </div>
+
+        <!-- Minggu 3 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="week-badge">Minggu 3 🌸</span>
+            <h3>Kenyamanan & Kedekatan Bertambah</h3>
+            <p>
+              Mulai merasa nyaman jadi diri sendiri, tidak perlu berpura-pura...
+            </p>
+            <div class="feeling-tags">
+              <span class="feeling-tag"
+                ><i class="fas fa-home"></i> Nyaman</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-laugh-beam"></i> Santai</span
+              >
+              <span class="feeling-tag"><i class="fas fa-hug"></i> Hangat</span>
+            </div>
+          </div>
+          <div class="timeline-icon">
+            <i class="fas fa-sun"></i>
+          </div>
+        </div>
+
+        <!-- Minggu 4 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <span class="week-badge">Minggu 4 🌟</span>
+            <h3>Cinta yang Semakin Dalam & Kuat</h3>
+            <p>Perasaan berkembang menjadi cinta yang tulus dan mendalam...</p>
+            <div class="feeling-tags">
+              <span class="feeling-tag"
+                ><i class="fas fa-infinity"></i> Abadi</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-shield-heart"></i> Setia</span
+              >
+              <span class="feeling-tag"
+                ><i class="fas fa-rocket"></i> Berproses</span
+              >
+            </div>
+          </div>
+          <div class="timeline-icon">
+            <i class="fas fa-crown"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Celebration -->
+      <div class="celebration-section">
+        <h2>🎊 Selamat 1 Bulan! 🎊</h2>
+        <p>
+          Ini baru awal dari perjalanan panjang kita. Setiap hari bersamamu
+          adalah anugerah, setiap tawa adalah musik terindah, setiap momen
+          adalah kenangan berharga.
+        </p>
+        <button class="cute-button" id="celebrationBtn">
+          <i class="fas fa-fireworks"></i> Rayakan Bersama!
+        </button>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-logo">
+          Dibuat dengan <i class="fas fa-heart pulse"></i> untuk 30 hari pertama
+          kita
+        </div>
+        <p class="footer-date">© 2026 Kisah Cinta Kita • 30 Hari Penuh Makna</p>
+        <div class="footer-social">
+          <button class="music-toggle" id="musicToggle">
+            <i class="fas fa-music"></i> <span>Putar Musik</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i> <span>Mode Gelap</span>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Audio untuk Musik Latar (tersembunyi) - SAMA seperti di index.html -->
+    <audio id="bgMusic" loop>
+      <source src="../audio/Mas dan Kamu.mp3" type="audio/mpeg" />
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/countdown.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Floating hearts
+        createFloatingHearts();
+
+        // Event listeners
+        setupEventListeners();
+
+        // Setup hamburger menu
+        setupHamburgerMenu();
+      });
+
+      function setupHamburgerMenu() {
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        // Buat overlay
+        const overlay = document.createElement("div");
+        overlay.className = "menu-overlay";
+        document.body.appendChild(overlay);
+
+        hamburger.addEventListener("click", (e) => {
+          e.stopPropagation();
+          navMenu.classList.toggle("show");
+          hamburger.classList.toggle("active");
+          overlay.classList.toggle("show");
+        });
+
+        // Tutup menu ketika klik overlay
+        overlay.addEventListener("click", () => {
+          navMenu.classList.remove("show");
+          hamburger.classList.remove("active");
+          overlay.classList.remove("show");
+        });
+
+        // Tutup menu ketika klik link di dalam menu
+        document.querySelectorAll(".nav-menu a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMenu.classList.remove("show");
+            hamburger.classList.remove("active");
+            overlay.classList.remove("show");
+          });
+        });
+
+        // Tutup menu ketika resize window ke ukuran desktop
+        window.addEventListener("resize", () => {
+          if (window.innerWidth > 768) {
+            navMenu.classList.remove("show");
+            hamburger.classList.remove("active");
+            overlay.classList.remove("show");
+          }
+        });
+      }
+
+      function createFloatingHearts() {
+        const hearts = ["💖", "💕", "💗", "💓", "💞"];
+
+        for (let i = 0; i < 8; i++) {
+          const heart = document.createElement("div");
+          heart.className = "floating-heart";
+          heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = Math.random() * 100 + "vh";
+          heart.style.animationDelay = Math.random() * 5 + "s";
+          heart.style.fontSize = Math.random() * 15 + 15 + "px";
+
+          document.body.appendChild(heart);
+        }
+      }
+
+      function setupEventListeners() {
+        // Music toggle
+        const musicToggle = document.getElementById("musicToggle");
+        if (musicToggle) {
+          let musicPlaying = false;
+
+          musicToggle.addEventListener("click", function () {
+            musicPlaying = !musicPlaying;
+            this.innerHTML = musicPlaying
+              ? '<i class="fas fa-volume-up"></i> <span>Matikan Musik</span>'
+              : '<i class="fas fa-music"></i> <span>Putar Musik</span>';
+
+            if (musicPlaying) {
+              // Play music logic
+              console.log("🎵 Music started");
+            }
+          });
+        }
+
+        // Theme toggle
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-theme");
+            const isDark = document.body.classList.contains("dark-theme");
+            this.innerHTML = isDark
+              ? '<i class="fas fa-sun"></i> <span>Mode Terang</span>'
+              : '<i class="fas fa-moon"></i> <span>Mode Gelap</span>';
+          });
+        }
+
+        // Celebration button
+        const celebrationBtn = document.getElementById("celebrationBtn");
+        if (celebrationBtn) {
+          celebrationBtn.addEventListener("click", function () {
+            createConfetti();
+
+            // Show message
+            const message = document.createElement("div");
+            message.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: white;
+                        padding: 25px;
+                        border-radius: 15px;
+                        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+                        z-index: 1000;
+                        text-align: center;
+                        animation: popIn 0.3s ease;
+                    `;
+            message.innerHTML = `
+                        <h3 style="color: #FF6B9D; margin-bottom: 10px;">🎉 Selamat 1 Bulan! 🎉</h3>
+                        <p style="margin-bottom: 15px;">Terima kasih sudah menjadi bagian dari hidup Mas ya sayangku 💖</p>
+                        <button onclick="this.parentElement.remove()" style="padding: 8px 20px; background: #FF6B9D; color: white; border: none; border-radius: 20px; cursor: pointer;">
+                            Tutup
+                        </button>
+                    `;
+
+            document.body.appendChild(message);
+
+            // Add popIn animation
+            const style = document.createElement("style");
+            style.textContent = `
+                        @keyframes popIn {
+                            0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+                            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+                        }
+                    `;
+            document.head.appendChild(style);
+          });
+        }
+      }
+
+      function createConfetti() {
+        const colors = ["#FF6B9D", "#D5AAFF", "#A5D8FF", "#C1FFD7"];
+        const emojis = ["💖", "💕", "💗", "✨", "🎉"];
+
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.textContent =
+              emojis[Math.floor(Math.random() * emojis.length)];
+            confetti.style.cssText = `
+                        position: fixed;
+                        font-size: ${Math.random() * 15 + 15}px;
+                        color: ${
+                          colors[Math.floor(Math.random() * colors.length)]
+                        };
+                        left: ${Math.random() * 100}vw;
+                        top: -30px;
+                        z-index: 999;
+                        pointer-events: none;
+                        animation: confettiFall ${
+                          Math.random() * 2 + 1
+                        }s linear forwards;
+                    `;
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+              confetti.remove();
+            }, 3000);
+          }, i * 30);
+        }
+
+        // Add confetti animation
+        const style = document.createElement("style");
+        style.textContent = `
+                @keyframes confettiFall {
+                    to {
+                        transform: translateY(100vh) rotate(${
+                          Math.random() * 360
+                        }deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+        document.head.appendChild(style);
+      }
+    </script>
+  </body>
+</html>

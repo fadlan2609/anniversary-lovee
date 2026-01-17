@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galeri Foto Kita ❤️</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/gallery.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="logo">KisahCintaKita<span>.</span></a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          title="Buka/tutup menu navigasi"
+          aria-label="Buka/tutup menu navigasi"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="../index.html"><i class="fas fa-home"></i> Beranda</a>
+          </li>
+          <li>
+            <a href="story.html"><i class="fas fa-book-open"></i> Kisah Kita</a>
+          </li>
+          <li>
+            <a href="gallery.html" class="active"
+              ><i class="fas fa-images"></i> Galeri</a
+            >
+          </li>
+          <li>
+            <a href="messages.html"><i class="fas fa-envelope"></i> Pesan</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header Halaman -->
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">Galeri Kita</h1>
+        <p class="page-subtitle">
+          Mengabadikan setiap senyuman, setiap tawa, setiap momen yang kita bagi
+          bersama.
+        </p>
+      </div>
+    </header>
+
+    <!-- Konten Galeri -->
+    <section class="page-content">
+      <div class="container">
+        <!-- Kontrol Galeri -->
+        <div class="gallery-controls">
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            title="Tampilkan semua foto"
+          >
+            Semua Foto
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="dates"
+            title="Tampilkan foto kencan"
+          >
+            Kencan
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="travel"
+            title="Tampilkan foto perjalanan"
+          >
+            Perjalanan
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="everyday"
+            title="Tampilkan foto sehari-hari"
+          >
+            Sehari-hari
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="special"
+            title="Tampilkan foto momen spesial"
+          >
+            Momen Spesial
+          </button>
+        </div>
+
+        <!-- Grid Galeri -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Item galeri akan dimuat oleh JavaScript -->
+        </div>
+
+        <!-- Penghitung Foto -->
+        <div class="photo-counter">
+          <p class="text-center">
+            <i class="fas fa-camera"></i>
+            <span id="photoCount">0</span> kenangan terabadikan
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose" title="Tutup lightbox">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="lightbox-prev" id="lightboxPrev" title="Foto sebelumnya">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-next" id="lightboxNext" title="Foto berikutnya">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="lightbox-content">
+        <img src="" alt="" class="lightbox-img" id="lightboxImage" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            Dibuat dengan <i class="fas fa-heart pulse"></i> untuk Cintaku
+          </div>
+          <p class="footer-date">© 2026 Kisah Cinta Fadlan & Hijri</p>
+          <div class="footer-social">
+            <button
+              class="music-toggle"
+              id="musicToggle"
+              title="Nyalakan/matikan musik latar"
+            >
+              <i class="fas fa-music"></i> <span>Putar Musik</span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              title="Ubah mode terang/gelap"
+            >
+              <i class="fas fa-moon"></i> Mode Gelap
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Audio untuk Musik Latar (tersembunyi) - SAMA seperti di index.html -->
+<audio id="bgMusic" loop>
+    <source src="../audio/Mas dan Kamu.mp3" type="audio/mpeg" />
+    Browser Anda tidak mendukung elemen audio.
+</audio>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="../js/gallery.js"></script>
+  </body>
+</html>

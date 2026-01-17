@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surat Cinta 1 Bulan 💖 - Anniversary Spesial</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/messages.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* ============================================
+           STYLING KHUSUS ANNIVERSARY 1 BULAN
+           ============================================ */
+
+      /* Animasi khusus untuk pesan rahasia */
+      .secret-unlock {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: linear-gradient(135deg, #fff5f7 0%, #ffeef1 100%);
+        border-radius: 25px;
+        margin: 3rem 0;
+        box-shadow: 0 20px 50px rgba(255, 107, 157, 0.15);
+        border: 2px solid rgba(255, 107, 157, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .secret-unlock::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffc2d1);
+      }
+
+      .secret-code-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 2.5rem 0;
+      }
+
+      .secret-input-digit {
+        width: 70px;
+        height: 85px;
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 800;
+        border: 3px solid #ffc2d1;
+        border-radius: 15px;
+        background: white;
+        color: #ff6b9d;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .secret-input-digit:focus {
+        outline: none;
+        border-color: #ff6b9d;
+        box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+        transform: translateY(-5px) scale(1.05);
+      }
+
+      .secret-input-digit.filled {
+        background: linear-gradient(135deg, #fff5f7, #ffeef1);
+        border-color: #ff8fab;
+        animation: digitPop 0.3s ease;
+      }
+
+      .message-reveal {
+        display: none;
+        padding: 4rem 3rem;
+        background: white;
+        border-radius: 25px;
+        margin: 3rem 0;
+        position: relative;
+        overflow: hidden;
+        min-height: 500px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(255, 107, 157, 0.1);
+      }
+
+      .message-reveal::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffc2d1);
+      }
+
+      .message-text-container {
+        font-size: 1.3rem;
+        line-height: 1.9;
+        color: #333;
+        font-family: "Georgia", "Times New Roman", serif;
+        text-align: justify;
+        padding: 1rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .message-text-container::first-letter {
+        font-size: 3.5rem;
+        float: left;
+        line-height: 1;
+        margin: 0.15em 0.1em 0 0;
+        color: #ff6b9d;
+        font-weight: bold;
+      }
+
+      .message-word {
+        opacity: 0;
+        transform: translateY(20px);
+        display: inline-block;
+        margin-right: 5px;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .message-word.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .anniversary-header {
+        text-align: center;
+        margin: 2rem 0 4rem;
+        padding: 2.5rem 2rem;
+        background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+        color: white;
+        border-radius: 25px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .anniversary-header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 1%,
+          transparent 1%
+        );
+        background-size: 30px 30px;
+        animation: floatBackground 20s linear infinite;
+      }
+
+      .heart-animation {
+        display: inline-block;
+        animation: heartbeat 1.5s ease-in-out infinite;
+        color: #fff;
+        margin: 0 15px;
+        filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.1));
+      }
+
+      .unlock-success {
+        animation: successPop 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .code-hint {
+        font-size: 1rem;
+        color: #666;
+        margin-top: 15px;
+        font-style: italic;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 8px 15px;
+        border-radius: 20px;
+        display: inline-block;
+      }
+
+      .love-seal {
+        text-align: center;
+        margin-top: 3rem;
+        padding: 2rem;
+        border-top: 2px solid #ffc2d1;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 245, 247, 0.5),
+          rgba(255, 238, 241, 0.5)
+        );
+        border-radius: 15px;
+      }
+
+      .countdown-display {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        margin: 2rem 0;
+      }
+
+      .countdown-item {
+        text-align: center;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        min-width: 100px;
+        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      .countdown-item:hover {
+        transform: translateY(-10px);
+      }
+
+      .countdown-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: #ff6b9d;
+        display: block;
+        line-height: 1;
+      }
+
+      .countdown-label {
+        font-size: 1rem;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 10px;
+        font-weight: 600;
+      }
+
+      /* Animations */
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      @keyframes successPop {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        70% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes digitPop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      @keyframes floatBackground {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+      }
+
+      /* Styling untuk dark mode */
+      .dark-theme .secret-unlock {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 157, 0.1),
+          rgba(147, 112, 219, 0.1)
+        );
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .dark-theme .message-reveal {
+        background: rgba(30, 30, 40, 0.9);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        color: #ffffff;
+      }
+
+      .dark-theme .message-text-container {
+        color: #ffffff;
+      }
+
+      .dark-theme .love-seal {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .dark-theme .countdown-item {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      /* Responsive design */
+      @media (max-width: 768px) {
+        .secret-code-container {
+          gap: 10px;
+        }
+
+        .secret-input-digit {
+          width: 55px;
+          height: 70px;
+          font-size: 2rem;
+        }
+
+        .countdown-display {
+          gap: 15px;
+          flex-wrap: wrap;
+        }
+
+        .countdown-item {
+          min-width: 80px;
+          padding: 1rem;
+        }
+
+        .countdown-number {
+          font-size: 2.5rem;
+        }
+
+        .message-text-container {
+          font-size: 1.1rem;
+          line-height: 1.7;
+        }
+
+        .anniversary-header {
+          padding: 2rem 1rem;
+          margin: 1rem 0 2rem;
+        }
+      }
+
+      /* Floating hearts decoration */
+      .floating-hearts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .floating-heart {
+        position: absolute;
+        font-size: 1.8rem;
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-heart:nth-child(1) {
+        top: 10%;
+        left: 5%;
+        animation-delay: 0s;
+      }
+      .floating-heart:nth-child(2) {
+        top: 20%;
+        right: 10%;
+        animation-delay: 2s;
+      }
+      .floating-heart:nth-child(3) {
+        bottom: 30%;
+        left: 15%;
+        animation-delay: 4s;
+      }
+      .floating-heart:nth-child(4) {
+        bottom: 10%;
+        right: 20%;
+        animation-delay: 6s;
+      }
+
+      /* Progress bar untuk pesan */
+      .message-progress {
+        height: 4px;
+        background: #eee;
+        border-radius: 2px;
+        margin: 2rem 0;
+        overflow: hidden;
+      }
+
+      .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+        width: 0%;
+        transition: width 0.3s ease;
+      }
+
+      /* Button styling */
+      .btn-send {
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+        color: white;
+        border: none;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+      }
+
+      .btn-send:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(255, 107, 157, 0.4);
+        background: linear-gradient(135deg, #ff5a8c, #ff7e9f);
+      }
+
+      .btn-send:disabled {
+        background: #cccccc;
+        transform: none;
+        box-shadow: none;
+        cursor: not-allowed;
+      }
+
+      .btn-clear {
+        background: rgba(255, 107, 157, 0.1);
+        color: #ff6b9d;
+        border: 2px solid #ff6b9d;
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 15px;
+      }
+
+      .btn-clear:hover {
+        background: #ff6b9d;
+        color: white;
+      }
+
+      /* Error message styling */
+      .error-message {
+        background: linear-gradient(135deg, #ffeef1, #fff5f7);
+        border: 2px solid #ff6b9d;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        display: none;
+        animation: shakeError 0.5s ease;
+      }
+
+      @keyframes shakeError {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+          transform: translateX(-5px);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+          transform: translateX(5px);
+        }
+      }
+
+      /* Success message styling */
+      .success-message {
+        background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+        border: 2px solid #4caf50;
+        border-radius: 15px;
+        padding: 2rem;
+        margin: 1.5rem 0;
+        text-align: center;
+        animation: successPop 0.6s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="../index.html" class="logo"
+          >OneMonth<span>Love</span><i class="fas fa-heart"></i
+        ></a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          title="Buka/tutup menu navigasi"
+          aria-label="Buka/tutup menu navigasi"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="../index.html"><i class="fas fa-home"></i> Beranda</a>
+          </li>
+          <li>
+            <a href="story.html"><i class="fas fa-book-open"></i> Kisah Kita</a>
+          </li>
+          <li>
+            <a href="gallery.html"><i class="fas fa-images"></i> Galeri</a>
+          </li>
+          <li>
+            <a href="messages.html" class="active"
+              ><i class="fas fa-lock"></i> Surat Rahasia</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Header Halaman -->
+    <header class="page-header">
+      <div class="container">
+        <h1 class="page-title">1 Bulan Cinta Kita 💕</h1>
+        <p class="page-subtitle">
+          Sebuah perjalanan indah yang baru dimulai, penuh dengan harapan dan
+          cinta
+        </p>
+        <div class="anniversary-badge">
+          <span class="badge-text">30 Days of Love</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Konten Pesan -->
+    <section class="page-content">
+      <div class="container">
+        <!-- Anniversary Celebration -->
+        <div class="anniversary-header">
+          <div class="floating-hearts">
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💕</div>
+            <div class="floating-heart">💗</div>
+            <div class="floating-heart">💓</div>
+          </div>
+          <h2>
+            <i class="fas fa-heart heart-animation"></i> Selamat 1 Bulan,
+            Sayangku! <i class="fas fa-heart heart-animation"></i>
+          </h2>
+          <p>
+            30 hari indah bersamamu, 720 jam tawa bersama, 43.200 menit bahagia
+          </p>
+          <div class="anniversary-stats">
+            <div class="stat-item">
+              <i class="fas fa-clock"></i>
+              <span>1 Bulan</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-heart"></i>
+              <span>Tak Terhitung</span>
+            </div>
+            <div class="stat-item">
+              <i class="fas fa-smile"></i>
+              <span>Banyak Senyuman</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pesan Rahasia dengan Kode -->
+        <div class="secret-unlock">
+          <div class="floating-hearts">
+            <div class="floating-heart">🔒</div>
+            <div class="floating-heart">💌</div>
+            <div class="floating-heart">✉️</div>
+          </div>
+          <h2><i class="fas fa-lock"></i> Surat Rahasia dari Hatiku</h2>
+          <p class="secret-description">
+            Ada sesuatu yang ingin kusampaikan hanya untukmu. Masukkan kode
+            cinta kita untuk membuka pesan spesial ini:
+          </p>
+          <p class="secret-prompt">
+            <strong>Tanggal jadian kita: DDMMTT (6 digit)</strong>
+          </p>
+
+          <div class="secret-code-container">
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit1"
+              maxlength="1"
+              data-index="0"
+              placeholder="0"
+              title="Digit pertama dari kode cinta"
+            />
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit2"
+              maxlength="1"
+              data-index="1"
+              placeholder="0"
+              title="Digit kedua dari kode cinta"
+            />
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit3"
+              maxlength="1"
+              data-index="2"
+              placeholder="0"
+              title="Digit ketiga dari kode cinta"
+            />
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit4"
+              maxlength="1"
+              data-index="3"
+              placeholder="0"
+              title="Digit keempat dari kode cinta"
+            />
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit5"
+              maxlength="1"
+              data-index="4"
+              placeholder="0"
+              title="Digit kelima dari kode cinta"
+            />
+            <input
+              type="text"
+              class="secret-input-digit"
+              id="digit6"
+              maxlength="1"
+              data-index="5"
+              placeholder="0"
+              title="Digit keenam dari kode cinta"
+            />
+          </div>
+
+          <p class="code-hint">
+            💡 Petunjuk: Tanggal jadian kita 17 Desember 2025 (171225)
+          </p>
+
+          <div class="unlock-actions">
+            <button class="btn-send" id="unlockMessage">
+              <i class="fas fa-key"></i> Buka dengan Cinta
+            </button>
+            <button class="btn-clear" id="clearCode">
+              <i class="fas fa-eraser"></i> Hapus Kode
+            </button>
+          </div>
+
+          <div class="error-message" id="codeError">
+            <i class="fas fa-times-circle"></i>
+            <div>
+              <strong>Kode cinta salah!</strong>
+              <p>Coba ingat tanggal spesial kita: 17-12-25</p>
+            </div>
+          </div>
+
+          <div class="message-progress" id="messageProgress">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+
+        <!-- Pesan yang akan ditampilkan setelah kode benar -->
+        <div id="secretMessage" class="message-reveal">
+          <div class="message-text-container" id="messageText">
+            <!-- Pesan akan muncul kata per kata -->
+          </div>
+
+          <div class="love-seal">
+            <div class="seal-content">
+              <i class="fas fa-heart heart-seal-icon"></i>
+              <p class="seal-quote">
+                "Cinta sejati bukan tentang menemukan orang sempurna,<br />
+                tetapi tentang melihat orang yang tidak sempurna dengan cara
+                yang sempurna."
+              </p>
+              <div class="signature">
+                <p class="signature-text">
+                  Dengan cinta yang tumbuh setiap hari,<br />
+                  <strong class="signature-name">[Fadlan Fiqri Fauzan]</strong><br />
+                  <span class="signature-date">17 Januari 2024</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            Dibuat dengan <i class="fas fa-heart pulse footer-heart"></i> untuk
+            1 bulan pertama cinta kita
+          </div>
+          <p class="footer-date">
+            © 2026 Kisah Cinta Kita • 17 Desember 2025 - 17 Januari 2026
+          </p>
+          <div class="footer-social">
+            <button
+              class="music-toggle"
+              id="musicToggle"
+              title="Nyalakan/matikan musik latar"
+            >
+              <i class="fas fa-music"></i> <span>Putar Lagu Cinta</span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              title="Ubah mode terang/gelap"
+            >
+              <i class="fas fa-moon"></i> <span>Mode Gelap</span>
+            </button>
+            <button
+              class="share-button"
+              id="shareButton"
+              title="Bagikan momen ini"
+            >
+              <i class="fas fa-share-alt"></i> <span>Bagikan</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Audio untuk Musik Latar (tersembunyi) - SAMA seperti di index.html -->
+<audio id="bgMusic" loop>
+    <source src="../audio/Mas dan Kamu.mp3" type="audio/mpeg" />
+    Browser Anda tidak mendukung elemen audio.
+</audio>
+
+<!-- JavaScript -->
+<script src="../js/main.js"></script>
+<script src="../js/countdown.js"></script>
+
+    <!-- JavaScript -->
+    <script>
+      /**
+       * PESAN ROMANTIS ANNIVERSARY 1 BULAN
+       */
+      const ROMANTIC_MESSAGE = `Sayangku yang tercinta, Hijriani Fadhila Ningrum,
+
+Tidak terasa sudah satu bulan penuh kita menjalani kisah cinta ini. Tiga puluh hari yang terasa seperti mimpi indah yang tak ingin mas bangun dari tidur.
+
+Mas masih ingat jelas detik-detik ketika kamu mengatakan “iya” menjadi kekasih mas. Dunia seakan berhenti berputar, hanya ada kita berdua. Dan sejak saat itu, setiap hari selalu membawa kebahagiaan baru yang tak terduga.
+
+Dalam satu bulan ini, mas belajar bahwa cinta bukan hanya tentang perasaan berdebar-debar saat bertemu, tetapi juga tentang kenyamanan dalam diam bersama. Bukan hanya tentang tawa yang menggema, tetapi juga tentang saling memahami dalam kesedihan.
+
+Hijriani Fadhila Ningrum, kamu telah menjadi alasan senyum mas setiap pagi, alasan mas bersemangat menjalani hari, dan alasan mas berharap esok datang lebih cepat. Setiap pesan darimu adalah sinar matahari di hari kelabu, setiap tawamu adalah musik terindah di telinga mas.
+
+Terima kasih untuk kesabaranmu memahami segala kekurangan mas. Terima kasih untuk senyumanmu yang selalu menyambut mas. Terima kasih untuk keberanianmu mencintai mas apa adanya.
+
+Satu bulan mungkin waktu yang singkat bagi sebagian orang, tapi bagi kita ini adalah fondasi kokoh untuk sebuah bangunan cinta yang ingin mas jaga selamanya. Mas berjanji akan terus berusaha menjadi yang terbaik untukmu, untuk kita.
+
+Di bulan pertama ini, izinkan mas berjanji:
+Mas akan selalu mendengarmu, dalam suka maupun duka.
+Mas akan menghargai setiap momen bersamamu.
+Mas akan tumbuh bersamamu, belajar bersamamu.
+Dan yang terpenting, mas akan terus mencintaimu lebih dalam setiap harinya.
+
+Selamat satu bulan, sayangku, Hijriani Fadhila Ningrum. Ini baru awal dari perjalanan panjang kita. Mari kita tulis babak-babak indah selanjutnya bersama.
+
+Mas mencintaimu hari ini, besok, dan selamanya.
+Selamat ulang bulan hubungan kita, kekasih mas.
+
+Dengan cinta yang tak terhingga,
+Selamanya milikmu,
+Mas.`;
+
+      const CORRECT_CODE = "171225";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Inisialisasi sistem
+        initAnniversarySystem();
+
+        // Setup countdown
+        initCountdown();
+
+        // Setup event listeners
+        setupEventListeners();
+        
+        // Cek dan setup musik
+        setupMusic();
+      });
+
+      function initAnniversarySystem() {
+        const digitInputs = document.querySelectorAll(".secret-input-digit");
+        const unlockBtn = document.getElementById("unlockMessage");
+        const clearBtn = document.getElementById("clearCode");
+        const errorDiv = document.getElementById("codeError");
+        const progressDiv = document.getElementById("messageProgress");
+        const progressBar = document.getElementById("progressBar");
+
+        // Setup digit inputs
+        digitInputs.forEach((input, index) => {
+          input.addEventListener("input", function (e) {
+            const value = this.value;
+
+            // Validasi angka saja
+            if (!/^\d*$/.test(value)) {
+              this.value = value.replace(/\D/g, "");
+              return;
+            }
+
+            // Tambah class filled jika ada nilai
+            if (value) {
+              this.classList.add("filled");
+            } else {
+              this.classList.remove("filled");
+            }
+
+            // Auto focus ke berikutnya
+            if (value.length === 1 && index < digitInputs.length - 1) {
+              digitInputs[index + 1].focus();
+            }
+
+            // Sembunyikan error
+            errorDiv.style.display = "none";
+          });
+
+          // Handle keyboard
+          input.addEventListener("keydown", function (e) {
+            if (e.key === "Backspace" && this.value.length === 0 && index > 0) {
+              digitInputs[index - 1].focus();
+              digitInputs[index - 1].value = "";
+              digitInputs[index - 1].classList.remove("filled");
+            }
+
+            if (e.key === "Enter") {
+              unlockBtn.click();
+            }
+          });
+        });
+
+        // Unlock button
+        unlockBtn.addEventListener("click", unlockMessage);
+
+        // Clear button
+        clearBtn.addEventListener("click", function () {
+          digitInputs.forEach((input) => {
+            input.value = "";
+            input.classList.remove("filled");
+          });
+          digitInputs[0].focus();
+          errorDiv.style.display = "none";
+        });
+
+        function unlockMessage() {
+          let enteredCode = "";
+          digitInputs.forEach((input) => {
+            enteredCode += input.value;
+          });
+
+          if (enteredCode.length < 6) {
+            showError(
+              "Kode belum lengkap! Masukkan 6 digit tanggal jadian kita."
+            );
+            return;
+          }
+
+          if (enteredCode === CORRECT_CODE) {
+            // Success!
+            errorDiv.style.display = "none";
+            progressDiv.style.display = "block";
+
+            // Animate progress bar
+            let progress = 0;
+            const progressInterval = setInterval(() => {
+              progress += 5;
+              progressBar.style.width = progress + "%";
+
+              if (progress >= 100) {
+                clearInterval(progressInterval);
+                showSecretMessage();
+              }
+            }, 50);
+          } else {
+            showError("Kode cinta salah! Ingat tanggal spesial kita: 17-12-25");
+
+            // Shake animation
+            digitInputs.forEach((input) => {
+              input.style.animation = "shakeError 0.5s ease";
+              setTimeout(() => {
+                input.style.animation = "";
+              }, 500);
+            });
+          }
+        }
+
+        function showError(message) {
+          errorDiv.querySelector("div strong").textContent =
+            "Kode cinta salah!";
+          errorDiv.querySelector("div p").textContent = message;
+          errorDiv.style.display = "flex";
+        }
+
+        function showSecretMessage() {
+          const secretMessage = document.getElementById("secretMessage");
+          const messageText = document.getElementById("messageText");
+          const unlockBtn = document.getElementById("unlockMessage");
+
+          // Tampilkan pesan
+          secretMessage.style.display = "block";
+          secretMessage.classList.add("unlock-success");
+
+          // Split message
+          const words = ROMANTIC_MESSAGE.split(" ");
+          messageText.innerHTML = "";
+
+          // Animate words
+          words.forEach((word, index) => {
+            const wordSpan = document.createElement("span");
+            wordSpan.className = "message-word";
+            wordSpan.textContent = word + " ";
+            messageText.appendChild(wordSpan);
+
+            setTimeout(() => {
+              wordSpan.classList.add("visible");
+            }, 100 * index);
+          });
+
+          // Update button
+          unlockBtn.innerHTML = '<i class="fas fa-lock-open"></i> Terbuka!';
+          unlockBtn.style.background = "#4CAF50";
+          unlockBtn.disabled = true;
+
+          // Disable inputs
+          digitInputs.forEach((input) => {
+            input.disabled = true;
+            input.style.background = "#f8f8f8";
+          });
+
+          // Scroll ke pesan
+          setTimeout(() => {
+            secretMessage.scrollIntoView({ behavior: "smooth" });
+          }, 800);
+
+          // Play success sound (optional)
+          playSuccessSound();
+
+          // Show confetti
+          showConfetti();
+        }
+
+        // Auto focus pertama
+        digitInputs[0].focus();
+      }
+
+      function initCountdown() {
+        function updateCountdown() {
+          const countdownElement = document.getElementById("monthCountdown");
+          if (!countdownElement) return;
+
+          // Next month anniversary
+          const nextAnniversary = new Date(2025, 11, 17); // 17 Des 2025
+          nextAnniversary.setMonth(nextAnniversary.getMonth() + 1);
+          const now = new Date();
+
+          const diff = nextAnniversary - now;
+
+          if (diff > 0) {
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor(
+              (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+            );
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+                        <div class="countdown-display">
+                            <div class="countdown-item">
+                                <span class="countdown-number">${days}</span>
+                                <span class="countdown-label">Hari</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number">${hours}</span>
+                                <span class="countdown-label">Jam</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number">${minutes}</span>
+                                <span class="countdown-label">Menit</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number">${seconds}</span>
+                                <span class="countdown-label">Detik</span>
+                            </div>
+                        </div>
+                    `;
+          } else {
+            countdownElement.innerHTML = `
+                        <div class="countdown-complete">
+                            <i class="fas fa-heart" style="font-size: 3rem; color: #ff6b9d; margin-bottom: 1rem;"></i>
+                            <h3 style="color: #ff6b9d; margin-bottom: 0.5rem;">Selamat! 🎉</h3>
+                            <p>Kita sudah melewati bulan pertama bersama!</p>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">Mari lanjutkan perjalanan cinta kita 💕</p>
+                        </div>
+                    `;
+          }
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
+      function setupEventListeners() {
+        // Theme toggle
+        const themeToggle = document.getElementById("themeToggle");
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("dark-theme");
+            const isDark = document.body.classList.contains("dark-theme");
+            this.innerHTML = isDark
+              ? '<i class="fas fa-sun"></i> <span>Mode Terang</span>'
+              : '<i class="fas fa-moon"></i> <span>Mode Gelap</span>';
+          });
+        }
+
+        // Share button
+        const shareButton = document.getElementById("shareButton");
+        if (shareButton) {
+          shareButton.addEventListener("click", function () {
+            if (navigator.share) {
+              navigator.share({
+                title: "1 Bulan Anniversary Kita 💖",
+                text: "Lihat pesan cinta spesial untuk 1 bulan pertama kita!",
+                url: window.location.href,
+              });
+            } else {
+              navigator.clipboard.writeText(window.location.href);
+              alert("Link berhasil disalin! 🎉");
+            }
+          });
+        }
+      }
+      
+      function setupMusic() {
+        const musicToggle = document.getElementById("musicToggle");
+        const bgMusic = document.getElementById("bgMusic");
+        
+        if (!musicToggle || !bgMusic) return;
+        
+        // Ambil status dari localStorage
+        let musicPlaying = localStorage.getItem('musicPlaying') === 'true';
+        const savedTime = localStorage.getItem('musicTime');
+        const savedVolume = localStorage.getItem('musicVolume') || 0.3;
+        
+        // Set volume
+        bgMusic.volume = parseFloat(savedVolume);
+        
+        // Restore state jika sebelumnya sedang play
+        if (musicPlaying) {
+            // Set waktu sebelumnya jika ada
+            if (savedTime) {
+                bgMusic.currentTime = parseFloat(savedTime);
+            }
+            
+            // Coba play otomatis
+            setTimeout(() => {
+                bgMusic.play().then(() => {
+                    updateMusicButton(true);
+                }).catch(e => {
+                    console.log("Autoplay diblokir, butuh interaksi pengguna");
+                    updateMusicButton(false);
+                });
+            }, 1000);
+        }
+        
+        // Update tombol berdasarkan status saat ini
+        updateMusicButton(musicPlaying && !bgMusic.paused);
+        
+        // Event listener untuk tombol
+        musicToggle.addEventListener("click", function () {
+            if (bgMusic.paused) {
+                bgMusic.play().then(() => {
+                    musicPlaying = true;
+                    localStorage.setItem('musicPlaying', 'true');
+                    updateMusicButton(true);
+                }).catch(e => {
+                    console.log("Gagal memutar musik:", e);
+                });
+            } else {
+                bgMusic.pause();
+                musicPlaying = false;
+                localStorage.setItem('musicPlaying', 'false');
+                updateMusicButton(false);
+            }
+        });
+        
+        // Simpan waktu pemutaran
+        bgMusic.addEventListener('timeupdate', function() {
+            if (!bgMusic.paused) {
+                localStorage.setItem('musicTime', bgMusic.currentTime.toString());
+            }
+        });
+        
+        // Simpan volume saat diubah
+        bgMusic.addEventListener('volumechange', function() {
+            localStorage.setItem('musicVolume', bgMusic.volume.toString());
+        });
+        
+        function updateMusicButton(isPlaying) {
+            if (isPlaying) {
+                musicToggle.innerHTML = '<i class="fas fa-volume-up"></i> <span>Matikan Musik</span>';
+                musicToggle.classList.add('playing');
+            } else {
+                musicToggle.innerHTML = '<i class="fas fa-music"></i> <span>Putar Lagu Cinta</span>';
+                musicToggle.classList.remove('playing');
+            }
+        }
+      }
+
+      function playSuccessSound() {
+        // Bisa ditambahkan sound effect di sini
+        console.log("🎵 Playing anniversary success sound");
+      }
+
+      function showConfetti() {
+        const colors = ["#ff6b9d", "#ff8fab", "#ffc2d1", "#9370db", "#48bb78"];
+
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement("div");
+            confetti.className = "confetti";
+            confetti.innerHTML = "💖";
+            confetti.style.position = "fixed";
+            confetti.style.fontSize = Math.random() * 20 + 15 + "px";
+            confetti.style.color =
+              colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.left = Math.random() * 100 + "vw";
+            confetti.style.top = "-50px";
+            confetti.style.zIndex = "9999";
+            confetti.style.pointerEvents = "none";
+            confetti.style.opacity = "0.8";
+            confetti.style.animation = `confettiFall ${
+              Math.random() * 3 + 2
+            }s linear forwards`;
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => {
+              confetti.remove();
+            }, 5000);
+          }, i * 50);
+        }
+
+        // Add confetti animation
+        const style = document.createElement("style");
+        style.textContent = `
+                @keyframes confettiFall {
+                    to {
+                        transform: translateY(100vh) rotate(720deg);
+                        opacity: 0;
+                    }
+                }
+            `;
+        document.head.appendChild(style);
+      }
+    </script>
+  </body>
+</html>

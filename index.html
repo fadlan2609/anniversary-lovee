@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Hari Jadi Sayangku! ❤️</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/icons/heart.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/components.css" />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navigasi -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="index.html" class="logo">CeritaCintaKita<span>.</span></a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          title="Buka/tutup menu navigasi"
+          aria-label="Buka/tutup menu navigasi"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-menu" id="navMenu">
+          <li>
+            <a href="index.html" class="active"
+              ><i class="fas fa-home"></i> Beranda</a
+            >
+          </li>
+          <li>
+            <a href="pages/story.html"
+              ><i class="fas fa-book-open"></i> Kisah Kita</a
+            >
+          </li>
+          <li>
+            <a href="pages/gallery.html"
+              ><i class="fas fa-images"></i> Galeri</a
+            >
+          </li>
+          <li>
+            <a href="pages/messages.html"
+              ><i class="fas fa-envelope"></i> Pesan</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Bagian Hero -->
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="anniversary-title">
+          Selamat <span id="yearsTogether">1</span> Bulan!
+        </h1>
+        <p class="couple-names">Fadlan <i class="fas fa-heart"></i> Hijri</p>
+        <p class="date">Sejak 17 Desember 2025</p>
+
+        <!-- Penghitung Mundur -->
+        <div class="countdown-container">
+          <h3><i class="fas fa-clock"></i> Hitung Mundur Hari Jadi</h3>
+          <div class="countdown" id="countdown">
+            <div class="time-box">
+              <span id="days">00</span>
+              <small>Hari</small>
+            </div>
+            <div class="time-box">
+              <span id="hours">00</span>
+              <small>Jam</small>
+            </div>
+            <div class="time-box">
+              <span id="minutes">00</span>
+              <small>Menit</small>
+            </div>
+            <div class="time-box">
+              <span id="seconds">00</span>
+              <small>Detik</small>
+            </div>
+          </div>
+        </div>
+
+        <button
+          class="btn-hero"
+          onclick="window.location.href='pages/story.html'"
+          title="Baca kisah cinta kami"
+        >
+          Temukan Kisah Cinta Kami <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+      <div class="floating-hearts"></div>
+    </section>
+
+    <!-- Statistik Singkat -->
+    <section class="stats-section">
+      <div class="container">
+        <h2 class="section-title">Perjalanan Kami dalam Angka</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <i class="fas fa-calendar-day"></i>
+            <h3 id="daysTogether">30</h3>
+            <p>Hari Bersama</p>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-mug-hot"></i>
+            <h3>4</h3>
+            <p>Kencan Cafe</p>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-film"></i>
+            <h3>2</h3>
+            <p>Film Ditonton</p>
+          </div>
+          <div class="stat-card">
+            <i class="fas fa-heartbeat"></i>
+            <h3>∞</h3>
+            <p>Cinta & Tawa</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kenangan Unggulan -->
+    <section class="memories-preview">
+      <div class="container">
+        <h2 class="section-title">Momen Spesial</h2>
+        <div class="memory-grid">
+          <!-- Item kenangan akan dimuat oleh JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Kutipan Cinta -->
+    <section class="quote-section">
+      <div class="container">
+        <div class="quote-box">
+          <i class="fas fa-quote-left"></i>
+          <p id="dailyQuote">
+            "Dalam senyumanmu, kulihat sesuatu yang lebih indah dari
+            bintang-bintang."
+          </p>
+          <i class="fas fa-quote-right"></i>
+          <button
+            class="btn-quote"
+            id="newQuoteBtn"
+            title="Dapatkan kutipan cinta baru"
+          >
+            Kutipan Baru <i class="fas fa-sync-alt"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            Dibuat dengan <i class="fas fa-heart pulse"></i> untuk Cintaku
+          </div>
+          <p class="footer-date">© 2026 Kisah Cinta Fadlan & Hijri</p>
+          <div class="footer-social">
+            <button
+              class="music-toggle"
+              id="musicToggle"
+              title="Nyalakan/matikan musik latar"
+            >
+              <i class="fas fa-music"></i> <span>Putar Musik</span>
+            </button>
+            <button
+              class="theme-toggle"
+              id="themeToggle"
+              title="Ubah ke mode gelap/terang"
+            >
+              <i class="fas fa-moon"></i> Mode Gelap
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Audio untuk Musik Latar (tersembunyi) -->
+    <audio id="bgMusic" loop>
+      <source src="audio/Mas dan Kamu.mp3" type="audio/mpeg" />
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/countdown.js"></script>
+  </body>
+</html>

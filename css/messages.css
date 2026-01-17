@@ -1,0 +1,481 @@
+/* ============================================
+   GALERI KENANGAN 1 BULAN - MODERN & TREN
+   ============================================ */
+
+/* Container utama untuk galeri kenangan */
+.love-notes-section {
+    margin: 4rem 0;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffc2d1);
+    border-radius: 2px;
+}
+
+.section-title i {
+    color: #ff6b9d;
+    margin-right: 10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Grid container untuk card kenangan */
+.love-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Card individual kenangan */
+.note-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 182, 193, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.08);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.note-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #ff6b9d, #ff8fab, #ffc2d1);
+}
+
+.note-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(255, 107, 157, 0.15);
+    border-color: rgba(255, 107, 157, 0.3);
+}
+
+/* Icon card */
+.note-icon {
+    font-size: 2.5rem;
+    color: #ff6b9d;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(255, 143, 171, 0.1));
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+}
+
+.note-icon i {
+    animation: pulse 2s infinite;
+}
+
+/* Judul card */
+.note-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+.note-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+    border-radius: 2px;
+}
+
+/* Konten card */
+.note-card p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: center;
+    flex-grow: 1;
+    margin-top: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+/* Styling khusus untuk card pertama (Hari Pertama) */
+.note-card:nth-child(1) {
+    background: linear-gradient(135deg, #fff5f7, #ffeef1);
+}
+
+.note-card:nth-child(1) .note-icon {
+    background: linear-gradient(135deg, rgba(255, 107, 157, 0.15), rgba(255, 143, 171, 0.15));
+    color: #ff4d7e;
+}
+
+.note-card:nth-child(1)::before {
+    background: linear-gradient(90deg, #ff4d7e, #ff6b9d);
+}
+
+/* Styling khusus untuk card kedua (Momen Terbaik) */
+.note-card:nth-child(2) {
+    background: linear-gradient(135deg, #f8f7ff, #f0efff);
+}
+
+.note-card:nth-child(2) .note-icon {
+    background: linear-gradient(135deg, rgba(147, 112, 219, 0.15), rgba(186, 152, 255, 0.15));
+    color: #9370db;
+}
+
+.note-card:nth-child(2)::before {
+    background: linear-gradient(90deg, #9370db, #b698ff);
+}
+
+/* Styling khusus untuk card ketiga (Perasaan) */
+.note-card:nth-child(3) {
+    background: linear-gradient(135deg, #f7fff7, #effff0);
+}
+
+.note-card:nth-child(3) .note-icon {
+    background: linear-gradient(135deg, rgba(72, 187, 120, 0.15), rgba(120, 215, 155, 0.15));
+    color: #48bb78;
+}
+
+.note-card:nth-child(3)::before {
+    background: linear-gradient(90deg, #48bb78, #78d79b);
+}
+
+/* Badge tanggal khusus untuk hari pertama */
+.date-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff4d7e, #ff6b9d);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 1rem auto;
+    box-shadow: 0 4px 15px rgba(255, 77, 126, 0.3);
+    animation: badgePulse 2s infinite;
+}
+
+/* Animasi untuk icon hati di card perasaan */
+.note-card:nth-child(3) .note-icon i {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .love-notes {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .note-card {
+        padding: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .love-notes {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+@keyframes badgePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(255, 77, 126, 0.3);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(255, 77, 126, 0.4);
+    }
+}
+
+/* Efek hover micro-interactions */
+.note-card:hover .note-icon {
+    animation: spin 0.6s ease;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Glassmorphism effect untuk dark mode */
+.dark-theme .note-card {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .note-card h3 {
+    color: #ffffff;
+}
+
+.dark-theme .note-card p {
+    color: #cccccc;
+}
+
+.dark-theme .section-title {
+    color: #ffffff;
+}
+
+/* Gradien background untuk section */
+.love-notes-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(135deg,
+            rgba(255, 107, 157, 0.03) 0%,
+            rgba(147, 112, 219, 0.03) 50%,
+            rgba(72, 187, 120, 0.03) 100%);
+    z-index: -1;
+    border-radius: 0 0 50% 50%;
+}
+
+/* Scroll animation untuk cards */
+.note-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.note-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.note-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.note-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating elements decoration */
+.floating-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.floating-hearts span {
+    position: absolute;
+    font-size: 1.5rem;
+    color: rgba(255, 107, 157, 0.1);
+    animation: floatAround 20s linear infinite;
+}
+
+.floating-hearts span:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-hearts span:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 5s;
+}
+
+.floating-hearts span:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 10s;
+}
+
+@keyframes floatAround {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0);
+    }
+
+    25% {
+        transform: translate(20px, -20px) rotate(90deg);
+    }
+
+    50% {
+        transform: translate(0, -40px) rotate(180deg);
+    }
+
+    75% {
+        transform: translate(-20px, -20px) rotate(270deg);
+    }
+}
+
+/* Timeline connector untuk versi mobile */
+@media (max-width: 768px) {
+    .love-notes {
+        position: relative;
+    }
+
+    .love-notes::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: linear-gradient(to bottom, #ff6b9d, #9370db, #48bb78);
+        transform: translateX(-50%);
+        z-index: -1;
+    }
+
+    .note-card {
+        position: relative;
+    }
+
+    .note-card::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: -20px;
+        width: 15px;
+        height: 15px;
+        background: white;
+        border: 3px solid #ff6b9d;
+        border-radius: 50%;
+        transform: translateY(-50%);
+    }
+
+    .note-card:nth-child(2)::after {
+        border-color: #9370db;
+    }
+
+    .note-card:nth-child(3)::after {
+        border-color: #48bb78;
+    }
+}
+
+/* Styles for removed inline styles */
+.message-progress {
+    display: none;
+}
+
+.heart-seal-icon {
+    font-size: 2.5rem;
+    color: #ff6b9d;
+    margin-bottom: 1rem;
+}
+
+.seal-quote {
+    font-style: italic;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.signature-text {
+    margin-top: 1.5rem;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.signature-name {
+    color: #ff6b9d;
+    font-size: 1.3rem;
+}
+
+.signature-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.meter-fill-95 {
+    width: 95%;
+}
+
+.meter-fill-90 {
+    width: 90%;
+}
+
+.meter-fill-100 {
+    width: 100%;
+}
+
+.footer-heart {
+    color: #ff6b9d;
+}
